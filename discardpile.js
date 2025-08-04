@@ -23,22 +23,27 @@ export class DiscardPile {
     }
 
     /**
+     * getTop - retrieve the top of the discard pile
+     * @returns top card of discard pile
+     */
+    getTop() {
+        return this.pile.peek();
+    }
+
+    /**
+     * getDiscard - accessor method for the discard pile
+     * @returns this DiscardPile object
+     */
+    getDiscardPile() {
+        return this.pile;
+    }
+
+    /**
      * isEmpty - checks if the discard pile is empty
      * @returns true if it is empty, false otherwise
      */
     isEmpty() {
-        return this.isEmpty();
-    }
-
-    /**
-     * render - render the discard pile on screen 
-     * @param {Card} discardedCard - top card of discard pile
-     */
-    render(discardedCard) {
-        let discardImg = document.getElementById("discard");
-        let suit = discardedCard.getSuit();
-        let rank = discardedCard.getRank();
-        discardImg.src = "playing-cards/" + discardedCard.numberToRank(rank) + "_of_" + suit + ".png";
+        return this.pile.isEmpty();
     }
 
     /**

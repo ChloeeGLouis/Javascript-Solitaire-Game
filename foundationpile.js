@@ -47,10 +47,10 @@ export class FoundationPile {
     }
 
     /**
-     * getPile - gets the instance of the pile
-     * @returns the instance of the foundation pile
+     * getFoundationPile - gets the instance of the pile
+     * @returns the instance of the FoundationPile object
      */
-    getPile() {
+    getFoundationPile() {
         return this.pile;
     }
 
@@ -61,29 +61,15 @@ export class FoundationPile {
     getSize() {
         return this.pile.size();
     }
- 
+
     /**
-     * render - render the foundation pile on screen
-     * @param {String} suit 
-     * @param {Card} card
+     * getTop - retrieve the top of the foundation pile
+     * @returns top card of foundation pile
      */
-    render(card, suit) {
-        // clear the current image from foundation pile 
-        const foundationPile = document.getElementById(suit);
-        foundationPile.removeChild(foundationPile.firstChild);
-        // create a new photo element
-        let newPhoto = document.createElement("img");
-        // if there are no cards, load photo of suit
-        if (this.getSize() == 0) 
-            newPhoto.src = "suits images/suits-" + suit + ".png"
-        else {
-            let rank = this.pile.peek().getRank();
-            let suit = this.pile.peek().getSize();
-            newPhoto.src = "playing-cards/" + card.numberToRank(rank) + "_of_" + suit + ".png";   
-        }  
-        // append photo to container
-        foundationPile.appendChild(newPhoto);   
+    getTop() {
+        return this.pile.peek();
     }
+
     /**
      * @returns foundation pile in string form
      */

@@ -48,6 +48,7 @@ h3 {
 }
 
 #tableau-container {
+    position: relative;
     margin-top: 60px;
     display: grid;
     grid-template-columns: repeat(7, 1fr);
@@ -57,7 +58,9 @@ h3 {
     align-items: start;
 }
 
-.tableau {
+.tableau
+.tableau-card-container {
+    position: absolute;
     align-self: start;
     margin-top: 0;
 }
@@ -70,7 +73,8 @@ h3 {
 
 .suits, 
 .tableau, 
-.foundation {
+.foundation,
+.tableau-card-container {
     width: 93.84567px;
     height: 136.58552px;
     border: 1px solid rgb(255, 255, 255);
@@ -111,7 +115,12 @@ button {
     height: 56px;
 }
 
-.tableau img {
+.tableau img,
+#stock img,
+#discard img,
+.tableau-card-container img,
+#deck-card-container img,
+#discard-card-container img {
     position: relative;
     width: 93.84567px;
     height: 136.58552px;

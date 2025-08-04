@@ -55,6 +55,14 @@ export class TableauPile {
   }
 
   /**
+     * getTableauPile - accessor method for the tableau pile
+     * @returns this TableauPile object
+     */
+    getTableauPile() {
+        return this.pile;
+    }
+
+  /**
    * isEmpty - checks if the tableau pile is empty
    * @returns true if the tableau pile is empty, false otherwise
    */
@@ -62,10 +70,6 @@ export class TableauPile {
     if (this.pile.getSize() == 0) return true;
     return false;
   }
-
-  getVisibleCards() {}
-
-  setVisibility(card) {}
 
   /**
    * getSize - returns the size of the tableau pile

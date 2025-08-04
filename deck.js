@@ -23,6 +23,14 @@ export class Deck {
     getDeck() {
         return this.deck;
     }
+
+    /**
+     * getTop - retrieve the top of the discard pile
+     * @returns top card of deck 
+     */
+    getTop() {
+        return this.pile.peek();
+    }
     
     /**
      * isEmpty - checks if the deck is empty or not
@@ -58,25 +66,6 @@ export class Deck {
             dealt.push(this.deck.pop());
         }
         return dealt;
-    }
-
-    /**
-     * render - render deck on screen
-     * @param {ArrayStack} discard - discard pile
-     */
-    render(discard) {
-        if (this.deck.isEmpty()) {
-            if (!discard.isEmpty()) {
-                let button = document.getElementById("restock-btn");
-                button.style.display = "flex";   
-            }
-        } else {
-            button.style.display = "none";
-            let stock = document.getElementById("stock");
-            let rank = this.peek().getRank();
-            let suit = this.peek().getSuit();
-            stock.src = "playing-cards/" + this.peek().numberToRank(rank) + "_of_" + suit + ".png";
-        }
     }
     
     /**
