@@ -1,0 +1,139 @@
+body {
+    background-color: rgb(3, 66, 3);
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color: rgb(255, 255, 255);
+    width: 960px;
+}
+
+h1 {
+    font-size: 40px;
+    margin-bottom: 50px;
+}
+
+h3 { 
+    font-size: 25px;
+    margin-bottom: 50px;
+}
+
+#play-container {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(3, auto);
+    margin: 0 auto;
+    justify-items: center;
+}
+
+#stock-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    grid-column: 1 / 4;
+    grid-row: 1;
+    justify-content: center;
+    gap: 10px;
+    margin-right: -125px; 
+}
+
+#foundation-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    align-items: start;
+    grid-column: 4 / -1;
+    grid-row: 1;
+    gap: 10px;
+    justify-content: center;
+    margin-left: -95px; 
+}
+
+#tableau-container {
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-column: 1 / -1;
+    gap: 10px;
+    justify-content: center;
+    align-items: start;
+}
+
+.tableau {
+    align-self: start;
+    margin-top: 0;
+}
+
+.foundation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.suits, 
+.tableau, 
+.foundation {
+    width: 93.84567px;
+    height: 136.58552px;
+    border: 1px solid rgb(255, 255, 255);
+}
+
+.foundation, 
+#stock,
+#discard {
+    width: 93.84567px;
+    height: 136.58552px;
+    border: 1px solid rgb(255, 255, 255);
+    align-self: start;
+}
+
+button {
+    background: none;
+    font-size: 28px;
+    font-family: 'Times New Roman', Times, serif;
+    color: rgb(0, 0, 0); 
+    border-radius: 5px;
+    background-color: rgb(255, 255, 255);
+    width: 130px;
+    height: 50px;
+    box-shadow: none;
+    border: 3px solid black;
+}
+
+#buttons {
+    grid-column: 1 / -1;
+    grid-row: 3;
+    display: flex;
+    justify-content: center;
+    margin-top: 300px
+}
+
+.foundation img {
+    width: 56px;
+    height: 56px;
+}
+
+.tableau img {
+    position: relative;
+    width: 93.84567px;
+    height: 136.58552px;
+    overflow: visible;
+}
+
+#stock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#restock-btn {
+    display: flex;
+    justify-content: center;
+    width: 70px;
+    height: 70px;
+    background-color: rgb(3, 66, 3);
+    border: 0px solid white;
+}
+
+#score {
+    font-size: 25px;
+    margin-top: -30px;
+}

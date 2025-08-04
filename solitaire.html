@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="solitaire.css">
+    <script type="module" src="arraystack.js"></script>
+    <script type="module" src="card.js"></script>
+    <script type="module" src="solitaire.js"></script>
+    <title>Solitaire</title>
+</head>
+<body>
+    <h1>SOLITAIRE</h1>
+    <h3>SCORE:
+        <h4 id="score">0</h4>
+    </h3>
+    <div id="play-container">
+        <div id="stock-container">
+            <div id="stock">
+                <button id="restock-btn">
+                     <img src="images/white-undo-btn.png" alt="undo">
+                </button>
+            </div>
+            <div id="discard"></div>
+            <div id="empty"></div>
+        </div>
+        <div id="foundation-container">
+            <div class="foundation" id="clubs">
+                <img src="images/suits images/suits-clubs.png" alt="clubs">
+            </div>
+            <div class="foundation" id="diamonds">
+                <img src="images/suits images/suits-diamonds.png" alt="diamonds">
+            </div>
+            <div class="foundation" id="hearts">
+                <img src="images/suits images/suits-hearts.png" alt="hearts">
+            </div>
+            <div class="foundation" id="spades">
+                <img src="images/suits images/suits-spades.png" alt="spades">
+            </div>
+        </div>
+        <div id="tableau-container">
+            <div class="tableau" id="t1"></div>
+            <div class="tableau" id="t2"></div>
+            <div class="tableau" id="t3"></div>
+            <div class="tableau" id="t4"></div>
+            <div class="tableau" id="t5"></div>
+            <div class="tableau" id="t6"></div>
+            <div class="tableau" id="t7"></div>
+        </div>
+        <div id="buttons">
+            <button id="new-game-btn">NEW</button>
+            <button id="undo-btn">UNDO</button>
+        </div>
+    </div>
+</body>
+</html>
