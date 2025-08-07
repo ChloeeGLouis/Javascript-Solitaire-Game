@@ -22,6 +22,9 @@ export class ButtonHandler {
         this.restockBtn.addEventListener('click', () => this.restock());
     }
 
+    /**
+     * newGame - this method gets called to start the game when the 'new' button is pressed
+     */
     newGame() {
         this.gameInstance.startGame();
     }

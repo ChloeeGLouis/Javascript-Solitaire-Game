@@ -1,77 +1,44 @@
-import {ArrayStack} from "./arraystack.js";
 import {Card} from "./card.js";
+import {CardStack} from "./cardstack.js";
 
 const suits = ["diamonds", "clubs", "hearts", "spades"];
 const rank = [13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1];
 
-export class Deck {
+export class Deck extends CardStack {
     // constructor that creates a new 52-card deck 
     constructor() {
-        this.deck = new ArrayStack();
+        super();
         for (let i=0; i<suits.length; i++) {
             for (let j=0; j<rank.length; j++) {
                 let color = suits[i] == "clubs" || suits[i] == "spades" ? "black" : "red";
-                this.deck.push(new Card(suits[i], rank[j], color));
+                this.addCard(new Card(suits[i], rank[j], color, false)); 
             }
         }
     }
 
-    /**
-     * getDeck - accessor method for the deck
-     * @returns this Deck object
-     */
-    getDeck() {
-        return this.deck;
-    }
-
-    /**
-     * getTop - retrieve the top of the discard pile
-     * @returns top card of deck 
-     */
-    getTop() {
-        return this.pile.peek();
-    }
-    
-    /**
-     * isEmpty - checks if the deck is empty or not
-     * @returns true if deck size is 0, false otherwise
-     */
-    isEmpty() {
-        return this.deck.size() == 0;
-    }
-
-    /**
-     * shuffle - randomly shuffles the deck
-     */
     shuffle() {
-        let temp = new ArrayStack();
-        while (!this.deck.isEmpty()) {
-            temp.push(this.deck.pop());
+        let tempArr = [...this.contents];
+        let shuffledArr = new Array (tempArr.length);
+        for (let i=0; i<tempArr.length; i++) {
+            let randNum = Math.floor(Math.random() * 52);
+            while (shuffledArr[randNum] != undefined) 
+                randNum = Math.floor(Math.random() * 52);
+            shuffledArr[randNum] = tempArr[i];
         }
-        for (let i = temp.size() - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [temp.contents[i], temp.contents[j]] = [temp.contents[j], temp.contents[i]];
-        }
-        this.deck = temp;
+        this.contents = [];
+        for (let i=0; i<tempArr.length; i++) 
+            this.contents.push(shuffledArr[i]);
     }
 
     /**
      * deal - deals a certain number of cards from the deck and returns them
-     * @param {int} num - the number of cards to be dealt
-     * @returns an ArrayStack of dealt cards
+     * @param {Number} num - the number of cards to be dealt
+     * @returns {CardStack} an CardStack of dealt cards
      */
     deal(num) {
-        let dealt = new ArrayStack();
-        for (let i=0; i<num; i++) {
-            dealt.push(this.deck.pop());
-        }
+        let dealt = new CardStack();
+        for (let i=0; i<num; i++) 
+            dealt.addCard(this.removeCard());
         return dealt;
-    }
-    
-    /**
-     * @returns the deck in string form
-     */
-    toString() {
-        return this.deck.toString();
     }
 }

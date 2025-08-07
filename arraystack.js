@@ -8,7 +8,7 @@ export class ArrayStack {
 
     /**
      * isEmpty method - checks if the stack is empty
-     * @returns true if top == -1, false otherwise
+     * @returns {Boolean} true if top == -1, false otherwise
      */
     isEmpty() {
         return this.top == -1;
@@ -25,7 +25,7 @@ export class ArrayStack {
 
     /**
      * pop - removed the top Card from the stack
-     * @returns popped - the Card removed from the list
+     * @returns {Card} popped - the Card removed from the list
      */
     pop() {
         if (this.isEmpty()) 
@@ -37,17 +37,18 @@ export class ArrayStack {
 
     /**
      * peek - returns the top Card in the array
-     * @returns the top Card
+     * @returns {Card} the top Card
      */
     peek() {
         if (this.isEmpty()) 
             throw new Error("EmptyArrayException: the stack is empty.");
+        console.log("is the peek an instance of a card? ", this.contents[this.top] instanceof Card);
         return this.contents[this.top];
     }
 
     /**
      * size - calculates the size of the stack
-     * @returns top + 1 - the size of the stack
+     * @returns {Integer} top + 1 - the size of the stack
      */
     size() {
         return this.top + 1;
@@ -55,7 +56,7 @@ export class ArrayStack {
 
     /**
      * toString - returns the Card stack in string form
-     * @returns str - the Card stack in string form
+     * @returns {String} str - the Card stack in string form
      */
     toString() {
         let str = new String();
